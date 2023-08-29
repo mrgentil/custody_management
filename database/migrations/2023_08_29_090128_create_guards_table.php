@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('degree');
             $table->string('service');
             $table->string('unite');
+            $table->string('avatar')->nullable();
             $table->date('birth_date');
             $table->string('adresse');
             $table->string('phone');

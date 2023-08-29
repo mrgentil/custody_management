@@ -16,17 +16,24 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'name' => 'Super Administrateur',
+                'email' => 'super@amin.com',
+                'gender' => 'M',
+                'role_id' => 1, // ID du rôle administrateur
+                'password' => Hash::make('password'),
+            ],
+            [
                 'name' => 'Administrateur',
                 'email' => 'admin@amin.com',
                 'gender' => 'M',
-                'role_id' => 1, // ID du rôle administrateur
+                'role_id' => 2, // ID du rôle administrateur
                 'password' => Hash::make('password'),
             ],
             [
                 'name' => 'Garde',
                 'email' => 'garde@garde.com',
                 'gender' => 'F',
-                'role_id' => 2, // ID du rôle garde
+                'role_id' => 3, // ID du rôle garde
                 'password' => Hash::make('password'),
             ],
         ]);
