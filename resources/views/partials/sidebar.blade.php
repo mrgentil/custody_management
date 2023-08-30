@@ -19,7 +19,8 @@
                         <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="17">
                     </span>
         </a>
-        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                id="vertical-hover">
             <i class="ri-record-circle-line"></i>
         </button>
     </div>
@@ -37,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="">
+                    <a class="nav-link menu-link" href="{{route('users.index')}}">
                         <i class="mdi mdi-account-circle-outline"></i> <span data-key="t-dashboards">Utilisateurs</span>
                     </a>
                 </li>
@@ -46,7 +47,38 @@
                         <i class="mdi mdi-account-circle-outline"></i> <span data-key="t-dashboards">Gardes</span>
                     </a>
                 </li>
-                 <!-- end Dashboard Menu -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="">
+                        <i class="mdi mdi-timer-sand-complete"></i> <span data-key="t-dashboards">Armes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="">
+                        <i class="mdi mdi-human-dolly"></i> <span data-key="t-dashboards">Activités Journalière</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="">
+                        <i class="mdi mdi-bookmark-box-multiple"></i> <span data-key="t-dashboards">Rapport</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="">
+                        <i class="mdi mdi-bookmark-box-multiple"></i> <span data-key="t-dashboards">Rapport</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="javascript:void(0)" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span data-key="t-dashboards">Se deconnecter</span>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </a>
+                </li>
+                <!-- end Dashboard Menu -->
             </ul>
         </div>
         <!-- Sidebar -->

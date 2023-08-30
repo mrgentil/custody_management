@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,11 @@ Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function (){
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('users', App\Http\Controllers\UserController::class);
+    Route::patch('/users/{user}/suspend', [UserController::class, 'suspend'])->name('users.suspend');
+    Route::patch('/users/{user}/activate', [UserController::class, 'activate'])->name('users.activate');
+
+
 
 });
 
