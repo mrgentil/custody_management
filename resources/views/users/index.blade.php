@@ -90,7 +90,7 @@
                                                     <span class="badge bg-danger-subtle text-danger text-uppercase">Inactif</span>
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td >
                                                 <div class="d-flex gap-2">
                                                     <div class="edit">
                                                         <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editer</button>
