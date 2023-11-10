@@ -34,23 +34,24 @@
                                 <div class="row g-4 mb-3">
                                     <div class="col-sm-auto">
                                         <div>
-                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-                                            <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+
+                                            <a href="{{route('users.create')}}" class="btn btn-success add-btn" ><i class="ri-add-line align-bottom me-1"></i> Ajouter Utilisateur</a>
                                         </div>
+
+
                                     </div>
-                                    <div class="col-sm">
-                                        <div class="d-flex justify-content-sm-end">
-                                            <div class="search-box ms-2">
-                                                <label>
-                                                    <input type="text" class="form-control search" placeholder="Search...">
-                                                </label>
-                                                <i class="ri-search-line search-icon"></i>
+                                    <div class="search-box ms-2">
+                                        <form action="{{ route('users.search') }}" method="GET">
+                                            <div class="input-group">
+                                                <input  type="text" class="form-control search" name="query" placeholder="Rechercher...">
+                                                <button type="submit" class="btn btn-primary">Rechercher</button>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
+
                                 </div>
 
-                                <div class="table-responsive table-card mt-3 mb-1">
+                                <div  class="table-responsive table-card mt-3 mb-1">
                                     <table class="table align-middle table-nowrap" id="customerTable">
                                         <thead class="table-light">
                                         <tr>
@@ -59,10 +60,14 @@
                                                     <label for="checkAll"></label><input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
                                             </th>
-                                            <th class="sort" data-sort="customer_name">Nom</th>
+                                            <th class="sort" data-sort="customer_name">Avatar</th>
+                                            <th class="sort" data-sort="customer_name">Nom Complet</th>
+                                            <th class="sort" data-sort="customer_phone">Téléphone</th>
+                                            <th class="sort" data-sort="customer_name">Adresse</th>
                                             <th class="sort" data-sort="email">Email</th>
                                             <th class="sort" data-sort="phone">Genre</th>
                                             <th class="sort" data-sort="date">Role</th>
+                                            <th class="sort" data-sort="date">Categorie</th>
                                             <th class="sort" data-sort="status">Etat</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
@@ -76,10 +81,27 @@
                                                 </div>
                                             </th>
                                             <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                            <td>
+                                                <div class="avatar-group">
+                                                    @if ($user->avatar)
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-3.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="{{ asset('storage/' . $user->avatar) }}" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    @else
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="userProfil.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="{{ asset('userProfil.jpg') }}" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    @endif
+                                                </div>
+                                            </td>
+
                                             <td class="customer_name">{{ $user->name }}</td>
+                                            <td class="customer_name">{{ $user->phone }}</td>
+                                            <td class="customer_name">{{ $user->address }}</td>
                                             <td class="email">{{ $user->email }}</td>
                                             <td class="phone">{{ $user->gender === 'F' ? 'Femme' : 'Homme' }}</td>
                                             <td class="date">{{ $user->role->name }}</td>
+                                            <td class="date">{{ $user->categorie->name }}</td>
 {{--                                            <td class="status"><span class="badge bg-success-subtle text-success text-uppercase">{{ $user->is_active ? 'Active' : 'Inactive' }}</span>--}}
 {{--                                            --}}
 {{--                                            </td>--}}
@@ -93,7 +115,7 @@
                                             <td >
                                                 <div class="d-flex gap-2">
                                                     <div class="edit">
-                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editer</button>
+                                                        <a href="{{ route('users.edit', ['user' => $user->id]) }}" class="btn btn-sm btn-success edit-item-btn" >Editer</a>
                                                     </div>
                                                     <div class="remove">
                                                         <form action="{{ route('users.suspend', ['user' => $user->id]) }}" method="POST">

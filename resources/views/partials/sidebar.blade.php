@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="">
+                    <a class="nav-link menu-link" href="{{route('guards.index')}}">
                         <i class="mdi mdi-account-circle-outline"></i> <span data-key="t-dashboards">Gardes</span>
                     </a>
                 </li>
@@ -57,12 +57,6 @@
                         <i class="mdi mdi-human-dolly"></i> <span data-key="t-dashboards">Activités Journalière</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="">
-                        <i class="mdi mdi-bookmark-box-multiple"></i> <span data-key="t-dashboards">Rapport</span>
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="">
                         <i class="mdi mdi-bookmark-box-multiple"></i> <span data-key="t-dashboards">Rapport</span>

@@ -16,9 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('avatar')->nullable();
+            $table->string('phone');
+            $table->string('address');
             $table->enum('gender', ['M', 'F']);
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categorie_users');
             $table->boolean("is_active")->default(true);
             $table->boolean("first_login")->default(true);
             $table->timestamp('email_verified_at')->nullable();
@@ -36,6 +40,8 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['role_id']);
             $table->dropColumn('role_id');
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
         });;
     }
 };

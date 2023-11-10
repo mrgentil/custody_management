@@ -16,5 +16,8 @@ class Role extends Model
         return $this->hasMany(User::class, 'role_id');
     }
 
-
+    public function guards()
+    {
+        return $this->hasMany(Guard::class, 'role_id');
+    }
 }

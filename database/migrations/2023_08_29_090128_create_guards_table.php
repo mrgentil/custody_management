@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('degree');
             $table->string('service');
             $table->string('unite');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('avatar')->nullable();
             $table->date('birth_date');
             $table->string('adresse');

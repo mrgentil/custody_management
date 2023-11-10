@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('weapons', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('type');
             $table->string('serie_number');
             $table->date('acquisition_date');
             $table->enum('state', ['En possession', 'Non possession']);
-            $table->unsignedBigInteger('guard_id')->nullable();
-            $table->foreign('guard_id')->references('id')->on('guards');
+            $table->unsignedBigInteger('guard_id')->nullable(); // Clé étrangère nullable
             $table->timestamps();
+
+            $table->foreign('guard_id')->references('id')->on('guards');
         });
     }
 
