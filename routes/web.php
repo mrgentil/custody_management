@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +41,24 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function (){
     Route::resource('categories', App\Http\Controllers\CategorieUserController::class);
 
     //Route Armes
-    Route::resource('weagons', App\Http\Controllers\WeaponController::class);
+    Route::resource('weapons', App\Http\Controllers\WeaponController::class);
+    Route::get('/search-weapons', [\App\Http\Controllers\WeaponController::class, 'search'])->name('weapons.search');
+    Route::put('/weapons/{weapon}/disarm', [\App\Http\Controllers\WeaponController::class, 'disarm'])->name('weapons.disarm');
+    Route::put('/weapons/{weapon}/arm', [\App\Http\Controllers\WeaponController::class, 'arm'])->name('weapons.arm');
+
+    //Route Clients
+    Route::resource('customers', App\Http\Controllers\CustomerController::class);
+    Route::get('/search-customers', [\App\Http\Controllers\CustomerController::class, 'search'])->name('customers.search');
+    Route::get('/export-customers', [\App\Http\Controllers\CustomerController::class, 'exportCustomers'])->name('customers.export');
+
+
+    //Route Message
+    Route::middleware(['auth'])->group(function () {
+        // Routes pour les messages
+        Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+        Route::get('/messages/{userId}', [MessageController::class, 'show'])->name('messages.show');
+        Route::post('/messages/send', [MessageController::class, 'sendMessage'])->name('messages.send');
+    });
 
 });
 

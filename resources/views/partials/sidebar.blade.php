@@ -47,8 +47,15 @@
                         <i class="mdi mdi-account-circle-outline"></i> <span data-key="t-dashboards">Gardes</span>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="">
+                    <a class="nav-link menu-link" href="{{route('customers.index')}}">
+                        <i class="mdi mdi-account-circle-outline"></i> <span data-key="t-dashboards">Clients</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{route('weapons.index')}}">
                         <i class="mdi mdi-timer-sand-complete"></i> <span data-key="t-dashboards">Armes</span>
                     </a>
                 </li>
@@ -60,6 +67,12 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="">
                         <i class="mdi mdi-bookmark-box-multiple"></i> <span data-key="t-dashboards">Rapport</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{route('messages.index')}}">
+                        <i class="mdi mdi-email-variant"></i> <span data-key="t-dashboards">Ecrire Message</span>
                     </a>
                 </li>
 

@@ -31,9 +31,6 @@ class UserFactory extends Factory
             'role_id' => function () {
                 return Role::inRandomOrder()->first()->id;
             },
-            'category_id' => function () {
-                return CategorieUser::inRandomOrder()->first()->id;
-            },
             'is_active' => $this->faker->boolean(90),
             'first_login' => true,
             'email_verified_at' => now(),

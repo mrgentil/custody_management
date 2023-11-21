@@ -26,7 +26,7 @@ class User extends Authenticatable
         'avatar',
         'phone',
         'address',
-        'category_id'
+
     ];
 
     /**
@@ -54,9 +54,19 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id');
     }
 
-    public function categorie()
+    public function clients()
     {
-        return $this->belongsTo(CategorieUser::class, 'category_id');
+        return $this->hasMany(Customer::class, 'created_by');
+    }
+
+    public function messagesSent()
+    {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
+    public function messagesReceived()
+    {
+        return $this->hasMany(Message::class, 'receiver_id');
     }
 
 }

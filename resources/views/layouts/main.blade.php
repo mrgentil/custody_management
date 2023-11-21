@@ -28,6 +28,8 @@
     <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 
 </head>
@@ -118,8 +120,10 @@
 <script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 
+
 <!-- apexcharts -->
 <script src="{{asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- Vector map-->
 <script src="{{asset('assets/libs/jsvectormap/js/jsvectormap.min.js')}}"></script>
@@ -131,8 +135,6 @@
 <!-- Dashboard init -->
 <script src="{{asset('assets/js/pages/dashboard-ecommerce.init.js')}}"></script>
 
-<!-- App js -->
-<script src="{{asset('assets/js/app.js')}}"></script>
 @livewireScripts
 </body>
 </html>

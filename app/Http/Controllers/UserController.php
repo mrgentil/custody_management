@@ -30,8 +30,7 @@ class UserController extends Controller
     {
         // Récupérer les rôles pour le formulaire d'édition
         $roles = Role::all();
-        $categories = CategorieUser::all();
-        return view('users.create',compact('roles','categories'));
+        return view('users.create',compact('roles'));
     }
 
     public function suspend(User $user)
@@ -68,7 +67,6 @@ class UserController extends Controller
             'password' => 'required|string|min:8|confirmed', // Assurez-vous d'avoir un champ de confirmation de mot de passe
             'gender' => 'required|in:M,F', // Valider que le genre est "M" ou "F"
             'role_id' => 'required|exists:roles,id', // Assurez-vous que role_id existe dans la table des rôles
-            'category_id' => 'required|exists:categorie_users,id', // Assurez-vous que category_id existe dans la table des categorie_users
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image optionnelle, formats autorisés et taille maximale de 2 Mo
         ]);
         if ($request->hasFile('avatar')) {
@@ -87,7 +85,6 @@ class UserController extends Controller
             'password' => Hash::make($validatedData['password']),
             'gender' => $validatedData['gender'],
             'role_id' => $validatedData['role_id'],
-            'category_id' => $validatedData['category_id'],
             'avatar' => $avatarPath,
             'is_active' => true, // Vous pouvez modifier cela selon vos besoins
             'first_login' => true, // Vous pouvez modifier cela selon vos besoins
@@ -104,8 +101,7 @@ class UserController extends Controller
     {
         // Récupérer les rôles pour le formulaire d'édition
         $roles = Role::all();
-        $categories = CategorieUser::all();
-        return view('users.edit', compact('user', 'roles','categories'));
+        return view('users.edit', compact('user', 'roles'));
     }
 
     public function update(Request $request, User $user)
@@ -119,7 +115,6 @@ class UserController extends Controller
             'password' => 'nullable|string|min:8|confirmed',
             'gender' => 'required|in:M,F',
             'role_id' => 'required|exists:roles,id',
-            'category_id' => 'required|exists:categorie_users,id',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -130,7 +125,6 @@ class UserController extends Controller
         $user->phone = $validatedData['phone'];
         $user->gender = $validatedData['gender'];
         $user->address = $validatedData['address'];
-        $user->category_id = $validatedData['category_id'];
         $user->role_id = $validatedData['role_id'];
 
         // Mettre à jour le mot de passe s'il est fourni

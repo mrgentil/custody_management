@@ -9,8 +9,12 @@ class Weapon extends Model
 {
     use HasFactory;
 
-    public function gardes()
+    protected $fillable = [
+        'name', 'type', 'serie_number', 'acquisition_date', 'state', 'guard_id',
+    ];
+
+    public function garde()
     {
-        return $this->belongsTo(Guard::class);
+        return $this->belongsTo(Guard::class,'guard_id');
     }
 }

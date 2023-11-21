@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('serie_number');
             $table->date('acquisition_date');
-            $table->enum('state', ['En possession', 'Non possession']);
+            $table->enum('state', ['En possession', 'Non possession'])->default('Non possession');
             $table->unsignedBigInteger('guard_id')->nullable(); // Clé étrangère nullable
             $table->timestamps();
 

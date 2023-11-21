@@ -159,7 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -182,7 +182,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+       // 'Charts' => ConsoleTVs\Charts\Charts::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
 
 ];
