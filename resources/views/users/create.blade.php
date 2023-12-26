@@ -93,19 +93,6 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="category_id" class="form-label">Categorie</label>
-                                        <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id" required>
-                                            <option selected disabled value="">Choisir...</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('category_id')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
                                         <label for="gender" class="form-label">Genre</label>
                                         <select class="form-select @error('gender') is-invalid @enderror" id="gender" name="gender" required>
                                             <option selected disabled value="">Choisir...</option>

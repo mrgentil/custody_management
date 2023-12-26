@@ -12,6 +12,6 @@ class GardeSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Guard::factory(5)->create();
+        \App\Models\Guard::factory(250)->create();
     }
 }

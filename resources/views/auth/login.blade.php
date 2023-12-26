@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8"/>
-    <title>Connexion | Guard Management</title>
+    <title>Connexion | SPARTAKUS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
@@ -21,12 +21,8 @@
     <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css"/>
     <!-- custom Css-->
     <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css"/>
-
-
 </head>
-
 <body>
-
 <!-- auth-page wrapper -->
 <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
     <div class="bg-overlay"></div>
@@ -42,8 +38,8 @@
                                     <div class="bg-overlay"></div>
                                     <div class="position-relative h-100 d-flex flex-column">
                                         <div class="mb-4">
-                                            <a href="index.html" class="d-block">
-                                                <img src="assets/images/logo-light.png" alt="" height="18">
+                                            <a href="{{url('/')}}" class="d-block">
+                                                <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="18">
                                             </a>
                                         </div>
                                         <div class="mt-auto">
@@ -88,7 +84,7 @@
                                 <div class="p-lg-5 p-4">
                                     <div>
                                         <h5 class="text-primary">Bienvenue !</h5>
-                                        <p class="text-muted">Se connecter pour continuer à Guard Management.</p>
+                                        <p class="text-muted">Se connecter pour continuer à SPARTAKUS.</p>
                                     </div>
 
                                     <div class="mt-4">
@@ -100,10 +96,14 @@
                                                 @csrf
 
                                                 <div class="row mb-3">
-                                                    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                                    <label for="email"
+                                                           class="col-md-4 col-form-label text-md-end">{{ __('Adresse Email') }}</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                        <input id="email" type="email"
+                                                               class="form-control @error('email') is-invalid @enderror"
+                                                               name="email" value="{{ old('email') }}" required
+                                                               autocomplete="email" autofocus>
 
                                                         @error('email')
                                                         <span class="invalid-feedback" role="alert">
@@ -114,10 +114,13 @@
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                                    <label for="password"
+                                                           class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                        <input id="password" type="password"
+                                                               class="form-control @error('password') is-invalid @enderror"
+                                                               name="password" required autocomplete="current-password">
 
                                                         @error('password')
                                                         <span class="invalid-feedback" role="alert">
@@ -130,7 +133,9 @@
                                                 <div class="row mb-3">
                                                     <div class="col-md-6 offset-md-4">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                            <input class="form-check-input" type="checkbox"
+                                                                   name="remember"
+                                                                   id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                                             <label class="form-check-label" for="remember">
                                                                 {{ __('Se souvenir de moi') }}
@@ -146,7 +151,8 @@
                                                         </button>
 
                                                         @if (Route::has('password.request'))
-                                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                            <a class="btn btn-link"
+                                                               href="{{ route('password.request') }}">
                                                                 {{ __('Mot de passe oublié?') }}
                                                             </a>
                                                         @endif

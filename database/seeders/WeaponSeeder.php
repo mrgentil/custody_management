@@ -12,6 +12,6 @@ class WeaponSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Weapon::factory(5)->create();
+        \App\Models\Weapon::factory(250)->create();
     }
 }

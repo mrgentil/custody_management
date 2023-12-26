@@ -19,7 +19,7 @@ class GuardController extends Controller
 
     public function index()
     {
-        $guards = Guard::paginate(10);
+        $guards = Guard::orderBy('id', 'desc')->paginate(25);
         return view('guards.index',compact('guards'));
     }
 

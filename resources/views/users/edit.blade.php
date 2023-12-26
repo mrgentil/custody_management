@@ -84,19 +84,6 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="category_id" class="form-label">Categorie</label>
-                                        <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id" required>
-                                            <option selected disabled value="">Choisir...</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}" @if($user->category_id === $category->id) selected @endif>{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('category_id')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
                                         <label for="avatar" class="form-label">Avatar</label>
                                         <input type="file" class="form-control" id="avatar" name="avatar">
                                         @if ($user->avatar)

@@ -6,42 +6,42 @@
                 <div class="navbar-brand-box horizontal-logo">
                     <a href="{{url('/')}}" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                            <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/images/logo-dark.png" alt="" height="17">
+                            <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="17">
                         </span>
                     </a>
 
                     <a href="{{url('/')}}" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                            <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/images/logo-light.png" alt="" height="17">
+                            <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="17">
                         </span>
                     </a>
                 </div>
 
-                <button type="button"
-                        class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none"
-                        id="topnav-hamburger-icon">
-                    <span class="hamburger-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                </button>
+{{--                <button type="button"--}}
+{{--                        class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none"--}}
+{{--                        id="topnav-hamburger-icon">--}}
+{{--                    <span class="hamburger-icon">--}}
+{{--                        <span></span>--}}
+{{--                        <span></span>--}}
+{{--                        <span></span>--}}
+{{--                    </span>--}}
+{{--                </button>--}}
 
                 <!-- App Search-->
                 <form class="app-search d-none d-md-block">
-                    <div class="position-relative">
-                        <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
-                               id="search-options" value="">
-                        <span class="mdi mdi-magnify search-widget-icon"></span>
-                        <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
-                              id="search-close-options"></span>
-                    </div>
+{{--                    <div class="position-relative">--}}
+{{--                        <input type="text" class="form-control" placeholder="Search..." autocomplete="off"--}}
+{{--                               id="search-options" value="">--}}
+{{--                        <span class="mdi mdi-magnify search-widget-icon"></span>--}}
+{{--                        <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"--}}
+{{--                              id="search-close-options"></span>--}}
+{{--                    </div>--}}
                     <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
                         <div data-simplebar style="max-height: 320px;">
                             <!-- item-->
@@ -150,19 +150,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="ms-1 header-item d-none d-sm-flex">
-                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none"
-                            data-toggle="fullscreen">
-                        <i class='bx bx-fullscreen fs-22'></i>
-                    </button>
-                </div>
-
-                <div class="ms-1 header-item d-none d-sm-flex">
-                    <button type="button"
-                            class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode shadow-none">
-                        <i class='bx bx-moon fs-22'></i>
-                    </button>
-                </div>
+                
 
                 <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none"
